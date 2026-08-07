@@ -1,5 +1,4 @@
 import { navigationRoute, NavRoute } from "@/constants/CRM_Navigation";
-import { useUser } from "@/provider/AuthProvider";
 
 export type PermissionRoute = {
   path: string;

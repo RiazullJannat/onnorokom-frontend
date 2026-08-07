@@ -10,12 +10,10 @@ import {
 } from "react";
 
 export type TCurrentUser = {
-  userId: 1;
-  tenantSlug: string;
+  Id: number;
   role: string;
-  permissions: string[];
-  iat: number;
-  exp: number;
+  name:string;
+  email:string;
 };
 
 type exportProviderValue = {

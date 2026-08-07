@@ -1,9 +1,9 @@
 import {
   Activity,
   House,
-  List,
   LucideIcon,
   PenSquare,
+  Users,
 } from "lucide-react";
 
 export interface NavRoute {
@@ -15,7 +15,7 @@ export interface NavRoute {
   group?: string;
 }
 
-export type TRole = "TEAM_MEMBER" | "ADMIN" | "PROJECT_MANAGER";
+export type TRole = "Admin" | "Teacher" | "Student";
 
 export const navigationRoute: NavRoute[] = [
   {
@@ -24,19 +24,21 @@ export const navigationRoute: NavRoute[] = [
     path: "/",
   },
   {
-    title: "Tasks",
-    icon: List,
-    path: "/dashboard/tasks",
+    title: "User Management",
+    icon: Users,
+    path: "/dashboard/admin/users",
+    roles: ["Admin"],
   },
   {
     title: "Annotation",
     icon: PenSquare,
     path: "/dashboard/annotate",
+    roles: ["Teacher"],
   },
   {
     title: "Activity Log",
     icon: Activity,
     path: "/dashboard/activity-log",
-    roles: ["ADMIN"],
+    roles: ["Admin"],
   },
 ];

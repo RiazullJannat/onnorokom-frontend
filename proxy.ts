@@ -17,8 +17,7 @@ export const proxy = async (request: NextRequest) => {
 
   if (token && authRoutes.includes(pathname)) {
     const userInfo = await getCurrentUser();
-    // const role = userInfo?.role ?? null;
-    const role = "USER"
+    const role = userInfo?.role ?? null;
     if (!role) {
       await logout();
       return NextResponse.redirect(new URL("/login", request.url));
@@ -91,6 +90,7 @@ export const proxy = async (request: NextRequest) => {
 
 export const config = {
   matcher: [
+    "/dashboard/:path*",
     "/users/:path*",
     "/agents/:path*",
     "/customers/:path*",

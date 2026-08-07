@@ -35,9 +35,9 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const name = profile?.name || user?.tenantSlug || "User";
+  const name = user?.name || "User";
   const trimedName = name.length > 15 ? name.slice(0, 15) + "..." : name;
-  const avatarUrl = profile?.avatar_secure_url || "https://images.unsplash.com/photo-1676195470090-7c90bf539b3b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687";
+  const avatarUrl = "https://images.unsplash.com/photo-1676195470090-7c90bf539b3b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687";
   const handleLogOut = async () => {
     const toastId = toast.loading("logging out", { duration: 3000 });
     try {
