@@ -22,7 +22,7 @@ type TRegister = {
 //register
 export const register = async (data: TRegister) => {
   const res = await createPublicData<TRegister>(
-    `/auth/register`,
+    `/api/auth/register`,
     "/register",
     data,
   );
@@ -33,7 +33,7 @@ export const register = async (data: TRegister) => {
 export const login = async (loginData: TLogin) => {
   try {
     const res = await customFetch(
-      `${config?.next_public_base_api ?? ''}/auth/login`,
+      `${config?.next_public_base_api ?? ''}/api/auth/login`,
       {
         method: "POST",
         headers: {
@@ -43,7 +43,6 @@ export const login = async (loginData: TLogin) => {
       },
     );
     const result = await res?.json();
-    console.log("result",result)
     if (result?.success) {
       const cookieStore = await cookies();
       cookieStore.set("accessToken", result?.data?.accessToken ?? '', {

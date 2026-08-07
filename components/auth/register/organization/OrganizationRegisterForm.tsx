@@ -21,17 +21,18 @@ export default function OrganizationRegisterForm() {
 
   const handleRegister = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
+    const toastId = toast.loading("Creating account...");
     if (!formData.name || !formData.email || !formData.password || !formData.role) {
-      toast.error("Please fill all required fields");
+      toast.error("Please fill all required fields", { id: toastId });
       return;
     }
     setLoading(true);
     const res = await register(formData);
     if (res?.success) {
-      toast.success("Account created! Please sign in.");
+      toast.success("Account created! Please sign in.", { id: toastId });
       router.push("/login");
     } else {
-      toast.error(res?.message ?? "Registration failed");
+      toast.error(res?.message ?? "Registration failed", { id: toastId });
     }
     setLoading(false);
   };
