@@ -152,7 +152,7 @@ export default function Navbar() {
                     ) : user ? (
                       <>
                         <Link
-                          href="/dashboard/tasks"
+                          href="/dashboard/courses"
                           className="flex items-center gap-3 text-base font-semibold text-yellow-400 hover:translate-x-1 transition-transform"
                         >
                           <LayoutDashboard size={20} />
