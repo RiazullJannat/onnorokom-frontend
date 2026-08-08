@@ -5,7 +5,6 @@ import { getCourses } from "@/service/courseService/course.service";
 
 export default async function CoursesPage() {
     const res = await getCourses();
-    console.log(res.data);
     return (
         <div>
             <div className="flex justify-between items-center">

@@ -12,13 +12,13 @@ export async function getCourse(id: number) {
 }
 
 export async function updateCourse(id: number, data: any) {
-    return await putData(`/courses/${id}`, "", data);
+    return await putData(`/courses/${id}`, "/dashboard/courses", data);
 }
 
 export async function deleteCourse(id: number) {
-    return await deleteData(`/courses/${id}`, "");
+    return await deleteData(`/courses/${id}`, "/dashboard/courses");
 }
 
 export async function createCourse(data: CreateCoursePayload) {
-    return await createData(`/courses`, "", data);
+    return await createData(`/courses`, "/dashboard/courses", data);
 }

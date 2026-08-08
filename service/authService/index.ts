@@ -180,3 +180,15 @@ export const updatePassword = async (data: TUpdatePassword) => {
   );
   return res;
 };
+
+
+
+export const getAllStudents = async () => {
+  const res = await readData(`/users/students`, ["All Students"]);
+  return res;
+};
+
+export const getAllTeachers = async () => {
+  const res = await readData(`/users/teachers`, ["All Teachers"]);
+  return res;
+};

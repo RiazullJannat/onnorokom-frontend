@@ -31,6 +31,12 @@ export const navigationRoute: NavRoute[] = [
     roles: ["Admin", "Teacher", "Student"],
   },
   {
+    title: "Subjects",
+    icon: Book,
+    path: "/dashboard/subjects",
+    roles: ["Admin"],
+  },
+  {
     title: "User Management",
     icon: Users,
     path: "/dashboard/users",
