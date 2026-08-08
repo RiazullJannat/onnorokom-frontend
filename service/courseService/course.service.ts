@@ -1,13 +1,14 @@
 import { CreateCoursePayload } from "@/types/course/course.type";
-import { createData, deleteData, putData, readPublicData } from "../apiService/crud";
+import { createData, deleteData, putData, readData, readPublicData } from "../apiService/crud";
+import { Query } from "@/types/shared/shared.types";
 
 
-export async function getCourses() {
-    return await readPublicData("/courses", ["Courses"]);
+export async function getCourses(query?: Query) {
+    return await readData(`/courses`, ["Courses"], query);
 }
 
 export async function getCourse(id: number) {
-    return await readPublicData(`/courses/${id}`, ["Courses"]);
+    return await readData(`/courses/${id}`, ["Courses"]);
 }
 
 export async function updateCourse(id: number, data: any) {

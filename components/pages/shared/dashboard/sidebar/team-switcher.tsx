@@ -1,8 +1,6 @@
 "use client";
 
-import * as React from "react";
 import Image from "next/image";
-import Optilux from "../../../../../public/images/OptiluxBD.png";
 import {
   SidebarMenu,
   SidebarMenuItem,
@@ -28,11 +26,11 @@ function RemoteLogo({ url }: { url: string }) {
 
 function DefaultLogo() {
   return (
-    <Link href="/" className="flex items-center gap-3">
+    <div className="flex items-center gap-3">
       <div className="w-9 h-9 bg-yellow-400 rounded-xl flex items-center justify-center shadow-lg shadow-yellow-400/20">
         <div className="w-4 h-4 border-[3px] border-[#030115] rotate-45" />
       </div>
-    </Link>
+    </div>
   );
 }
 
