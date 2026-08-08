@@ -1,6 +1,10 @@
 export type CreateCoursePayload = {
     name: string;
     description: string;
+    subjectsAndTeachers: {
+        subjectId: number;
+        teacherId: number;
+    }[];
 }
 
 export type Course = {
