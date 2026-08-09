@@ -22,3 +22,8 @@ export async function deleteCourse(id: number) {
 export async function createCourse(data: CreateCoursePayload) {
     return await createData(`/courses`, "/dashboard/courses", data);
 }
+
+
+export async function assignStudentsToCourse(courseId: number, data: { studentIds: number[] }) {
+    return await createData(`/courses/${courseId}/students`, `/dashboard/courses/${courseId}`, data);
+}

@@ -11,5 +11,25 @@ export type Course = {
     id: number;
     name: string;
     description: string;
-    createdAt: string;
+    createdAt?: string | Date;
+    subjectsAndTeachers: {
+        subjectId: number;
+        subjectName: string;
+        teacherId: number;
+        teacherName: string;
+    }[];
+    students: {
+        studentId: number;
+        studentName: string;
+    }[];
 }
+
+
+export type Student = {
+    id: number;
+    name: string;
+    email: string;
+    role: TRole;
+}
+
+export type TRole = "Admin" | "Teacher" | "Student";

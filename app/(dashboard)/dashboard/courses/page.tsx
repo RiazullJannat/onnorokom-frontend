@@ -16,7 +16,7 @@ export default async function CoursesPage() {
                 <CreateCourse subjects ={subRes.data || []}  teachers = {techRes.data || []} />
             </div>
             <div>
-                <AllCourses courses={res.data || []} />
+                <AllCourses courses={res.data || []} subjects={subRes.data || []} teachers={techRes.data || []} />
             </div>
         </div>
     );

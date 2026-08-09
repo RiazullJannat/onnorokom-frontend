@@ -37,9 +37,9 @@ const LoginComponent = () => {
     resolver: zodResolver(loginSchema),
   });
 
-  const handleFastLogin = () => {
-    setValue('email', 'riazull.jannat@gmail.com');
-    setValue('password', 'rjannat77111');
+  const handleFastLogin = (email: string, pass: string) => {
+    setValue('email', email);
+    setValue('password', pass);
     handleSubmit(onSubmit)();
   };
 
@@ -174,15 +174,36 @@ const LoginComponent = () => {
               )}
             </button>
 
-            {/* Fast Login */}
-            <button
-              type="button"
-              onClick={handleFastLogin}
-              disabled={isSubmitting}
-              className="w-full cursor-pointer bg-[#51A2FF]/10 border border-[#51A2FF]/20 rounded-xl py-2.5 flex items-center justify-center text-[#51A2FF] text-sm font-medium hover:bg-[#51A2FF]/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed mt-3"
-            >
-              Fast Login (Demo)
-            </button>
+            {/* Fast Login Options */}
+            <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-white/[0.08]">
+              <p className="text-xs text-center text-white/50 uppercase tracking-wider mb-1">Fast Login</p>
+              <div className="grid grid-cols-3 gap-2">
+                <button
+                  type="button"
+                  onClick={() => handleFastLogin("rjannat@gmail.com", "rjannat77111")}
+                  disabled={isSubmitting}
+                  className="w-full cursor-pointer bg-white/[0.05] border border-white/[0.08] rounded-xl py-2 flex flex-col items-center justify-center hover:bg-[var(--accent-yellow)]/10 hover:border-[var(--accent-yellow)]/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed group"
+                >
+                  <span className="text-xs font-medium text-white/70 group-hover:text-[var(--accent-yellow)] transition-colors">Admin</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleFastLogin("teacher@onnorokom.com", "teacher@onnorokom")}
+                  disabled={isSubmitting}
+                  className="w-full cursor-pointer bg-white/[0.05] border border-white/[0.08] rounded-xl py-2 flex flex-col items-center justify-center hover:bg-[var(--accent-green)]/10 hover:border-[var(--accent-green)]/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed group"
+                >
+                  <span className="text-xs font-medium text-white/70 group-hover:text-[var(--accent-green)] transition-colors">Teacher</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleFastLogin("student@onnorokom.com", "student@onnorokom")}
+                  disabled={isSubmitting}
+                  className="w-full cursor-pointer bg-white/[0.05] border border-white/[0.08] rounded-xl py-2 flex flex-col items-center justify-center hover:bg-[var(--accent-blue)]/10 hover:border-[var(--accent-blue)]/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed group"
+                >
+                  <span className="text-xs font-medium text-white/70 group-hover:text-[var(--accent-blue)] transition-colors">Student</span>
+                </button>
+              </div>
+            </div>
           </form>
 
           {/* Divider */}

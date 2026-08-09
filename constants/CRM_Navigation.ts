@@ -1,6 +1,7 @@
 import {
   Activity,
   Book,
+  BookOpen,
   House,
   LucideIcon,
   PenSquare,
@@ -32,15 +33,15 @@ export const navigationRoute: NavRoute[] = [
   },
   {
     title: "Subjects",
-    icon: Book,
+    icon: BookOpen,
     path: "/dashboard/subjects",
     roles: ["Admin"],
   },
   {
-    title: "User Management",
+    title: "Assignments",
     icon: Users,
-    path: "/dashboard/users",
-    roles: ["Admin"],
+    path: "/dashboard/assignments",
+    roles: ["Admin", "Teacher"],
   },
   {
     title: "Annotation",
