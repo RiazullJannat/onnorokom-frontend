@@ -7,7 +7,6 @@ import { getAllSubjects } from "@/service/subjects/subjects.service";
 
 const AssignmentPage = async () => {
     const res = await getAssignments();
-    console.log(res);
     const courseRes = await getCourses();
     const subRes = await getAllSubjects();
     return (
@@ -17,7 +16,6 @@ const AssignmentPage = async () => {
                 <AddAssignment courses={courseRes?.data || []} subjects={subRes?.data || []}/>
             </div>
             <div>
-                {/* List will be added here later */}
                 <AllAssignment assignments={res?.data || []} />
             </div>
         </div>

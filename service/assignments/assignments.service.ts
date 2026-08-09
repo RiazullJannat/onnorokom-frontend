@@ -21,3 +21,8 @@ export const updateAssignment = async (id: number, data: CreateAssignmentPayload
 export const deleteAssignment = async (id: number) => {
     return await deleteData(`/assignments/${id}`, "/dashboard/assignments");
 }   
+
+
+export const getAssignmentsByCourse = async (id: number) => {
+    return await readData(`/courses/${id}/assignments`, ["Assignments"]);
+}   

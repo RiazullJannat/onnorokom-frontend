@@ -41,7 +41,7 @@ export const navigationRoute: NavRoute[] = [
     title: "Assignments",
     icon: Users,
     path: "/dashboard/assignments",
-    roles: ["Admin", "Teacher"],
+    roles: ["Admin", "Teacher", "Student"],
   },
   {
     title: "Annotation",
