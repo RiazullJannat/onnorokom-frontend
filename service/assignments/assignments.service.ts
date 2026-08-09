@@ -26,3 +26,18 @@ export const deleteAssignment = async (id: number) => {
 export const getAssignmentsByCourse = async (id: number) => {
     return await readData(`/courses/${id}/assignments`, ["Assignments"]);
 }   
+
+
+// ---------------------------------submishion --------------------------------
+
+export const submitAssignment = async (assignmentId: number | string,data: {Content:string}) => {
+    return await createData(`/assignments/${assignmentId}/submissions`, "/dashboard/assignments", data);    
+}
+
+export const updateAssignmentSubmission = async (assignmentId: number | string,submissionId: number | string,data: {Content:string}) => {
+    return await putData(`/assignments/${assignmentId}/submissions/${submissionId}`, "/dashboard/assignments", data);    
+}
+
+export const getAssignmentSubmission = async (assignmentId: number | string) => {
+    return await readData(`/assignments/${assignmentId}/submissions`, ["Assignments"]);
+}
