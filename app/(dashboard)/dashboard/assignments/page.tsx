@@ -22,4 +22,4 @@ const AssignmentPage = async () => {
     );
 };
 
-export default AssignmentPage;   
+export default AssignmentPage;

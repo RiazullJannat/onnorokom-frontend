@@ -38,7 +38,6 @@ export default function Navbar() {
     const toastId = toast.loading("logging out", { duration: 3000 });
     try {
       const res = await logout();
-      console.log("logout res", res);
       if (res.success) {
         setIsLoading(true);
         setUser(null);

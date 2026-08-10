@@ -5,7 +5,7 @@ import { getAllSubjects } from "@/service/subjects/subjects.service"
 
 const Page = async () => {
     const sub = await getAllSubjects()
-    
+
     return (
         <div>
             <div className="flex justify-between items-center">
