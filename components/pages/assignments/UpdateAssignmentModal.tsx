@@ -33,7 +33,7 @@ export default function UpdateAssignmentModal({
     if (assignment) {
       setTitle(assignment.title || "");
       setDescription(assignment.description || "");
-      
+
       // format deadline for datetime-local input
       if (assignment.deadline) {
         try {
@@ -47,7 +47,7 @@ export default function UpdateAssignmentModal({
       } else {
         setDeadline("");
       }
-      
+
       setMaxMarks(assignment.maxMarks || "");
       setIsPublished(assignment.isPublished || false);
     }
@@ -56,9 +56,9 @@ export default function UpdateAssignmentModal({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!assignment) return;
-    
+
     const toastId = toast.loading("Updating assignment...");
-    
+
     if (!title || !deadline || maxMarks === "") {
       toast.error("Please fill in all required fields", { id: toastId });
       return;
@@ -67,14 +67,14 @@ export default function UpdateAssignmentModal({
     setLoading(true);
     try {
       // Need to cast to any since the service might still use CreateAssignmentPayload
-      const res = await updateAssignment(assignment.id, { 
-        title, 
+      const res = await updateAssignment(assignment.id, {
+        title,
         description,
         deadline,
         maxMarks: Number(maxMarks),
         isPublished,
       } as any);
-      
+
       if (res) {
         toast.success(res.message || "Assignment updated successfully", { id: toastId });
         setIsOpen(false);

@@ -22,7 +22,7 @@ const notoSansBengali = Noto_Sans_Bengali({
 });
 
 export const metadata: Metadata = {
-  title: "TaskFlow",
+  title: "Onnorokom",
   description: "This is a task management system",
 };
 

@@ -2,14 +2,18 @@ import { TAssignment } from "@/types/assignments/assignments.type";
 import PageHeader from "@/components/ui/PageHeader";
 import { format } from "date-fns";
 import { BookOpen, Calendar, CheckCircle2, FileText, UserCheck, XCircle } from "lucide-react";
+import SubmitAnswer from "./SubmitAnswer";
 
 const AssignmentDetails = ({ assignment }: { assignment: TAssignment }) => {
     return (
         <div className="space-y-6">
-            <PageHeader 
-                title={assignment.title || "Assignment Details"} 
-                subtitle={`For ${assignment.courseName} • ${assignment.subjectName}`} 
-            />
+            <div className="flex  justify-between items-center">
+                <PageHeader
+                    title={assignment.title || "Assignment Details"}
+                    subtitle={`For ${assignment.courseName} • ${assignment.subjectName}`}
+                />
+                <SubmitAnswer assignmentId={assignment.id} />
+            </div>
 
             {/* Quick Stats/Info Row */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
