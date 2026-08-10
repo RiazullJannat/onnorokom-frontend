@@ -49,10 +49,4 @@ export const navigationRoute: NavRoute[] = [
     path: "/dashboard/annotate",
     roles: ["Teacher"],
   },
-  {
-    title: "Activity Log",
-    icon: Activity,
-    path: "/dashboard/activity-log",
-    roles: ["Admin"],
-  },
 ];
