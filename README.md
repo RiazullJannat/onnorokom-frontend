@@ -1,74 +1,137 @@
-# 🚀 TaskFlow Frontend - The Saga
+# 📚 Assignment & Submission Management System
 
-Welcome to the **TaskFlow** Frontend repository! This project is a minimalist futuristic Task Management and Medical Image Annotation platform built with **Next.js**, **Tailwind CSS**, and **Konva.js**.
+A role-based school/college application for managing assignments and student submissions with teacher feedback.
 
----
+## 🚀 Quick Start
 
-## ⚔️ The Villains We Faced (Difficulties & Triumphs)
+### Prerequisites
+- Node.js v18+ | pnpm/npm | Backend running
 
-*(A note from the developer: Every great saga has its villains. Here are the dragons we had to slay to bring this project to life.)*
-
-### 🐉 Villain 1: Implementing the Medical Image Annotation Engine
-**The Battle:** 
-During the frontend development, I faced a significant challenge with the annotation feature. The requirements were unique, and there weren't many clear guidelines or tutorials available on YouTube or tech blogs.
-
-**The Victory:** 
-However, by leveraging AI assistance and experimenting, I successfully figured it out and completed the implementation.
-
----
-
-## 🛠️ Environment Requirements
-
-Before you begin your journey to run this project, make sure your environment is equipped with the right tools.
-
-- **Node.js Version:** `v18.17.0` or higher (Recommended: `v20.x`)
-- **Package Manager:** `pnpm` (Recommended) or `npm` / `yarn`
-- **Backend Compatibility:** Ensure the TaskFlow Backend server is running. The backend requires **Python 3.10+**.
-
----
-
-## 🏃‍♂️ Detailed Steps to Run the Project
-
-Follow these exact steps to run the frontend application on your local machine:
-
-### Step 1: Clone the Repository
+### Setup
 ```bash
-git clone https://github.com/RiazullJannat/ph-task-management-frontend.git
-cd ph-task-management-frontend
-```
-
-### Step 2: Install Dependencies
-We highly recommend using `pnpm` for faster and more reliable installations.
-```bash
+# Install dependencies
 pnpm install
-# or if you use npm:
-npm install
+
+# Create .env.local
+echo "NEXT_PUBLIC_BASE_API=http://localhost:8000/api" > .env.local
+
+# Run development server
+pnpm dev
+```
+Visit `http://localhost:3000`
+
+## 👥 Demo Credentials
+
+| Role | Email | Password |
+|------|-------|----------|
+| Admin | admin@example.com | admin123 |
+| Teacher | teacher@example.com | teacher123 |
+| Student | student@example.com | student123 |
+
+## 🛠️ Tech Stack
+
+**Frontend:** Next.js 16 | React 19 | TypeScript | Tailwind CSS 4 | Radix UI | Redux Toolkit
+
+**Backend:** ASP.NET Core | C# | RESTful API | JWT Auth
+
+**Database:** PostgreSQL / MongoDB
+
+## 📂 Project Structure
+
+```
+app/                    # Routes
+├── (home)/            # Landing page
+├── (auth)/            # Login, Register, Password Reset
+└── (dashboard)/       # Admin, Teacher, Student Dashboard
+    ├── courses/       # Course Management
+    ├── assignments/   # Assignment Management
+    ├── subjects/      # Subject Management
+    └── users/         # User Management
+
+components/            # Reusable UI Components
+├── ui/               # Radix UI Components
+├── pages/            # Page Components
+└── skeletons/        # Loading Skeletons (16 routes)
+
+service/              # API Integration
+redux/                # State Management
+types/                # TypeScript Definitions
 ```
 
-### Step 3: Setup Environment Variables
-Create a `.env` or `.env.local` file in the root directory and configure your backend API endpoint.
+## ✨ Features
+
+✅ Role-based access (Admin/Teacher/Student)  
+✅ Assignment CRUD operations  
+✅ Student submission tracking  
+✅ Teacher grading & feedback  
+✅ Course & subject management  
+✅ User management  
+✅ JWT authentication  
+✅ Smooth loading states with skeletons  
+✅ Responsive design  
+✅ Dark mode support  
+
+## 🔐 Security
+
+- JWT-based authentication
+- Role-based authorization
+- Input validation with Zod
+- CORS protection
+- Secure password reset
+
+## 📦 Scripts
+
+```bash
+pnpm dev      # Development server
+pnpm build    # Production build
+pnpm start    # Start production
+pnpm lint     # Run ESLint
+```
+
+## 📝 API Endpoints (Main)
+
+| Method | Endpoint | Purpose |
+|--------|----------|---------|
+| POST | `/auth/login` | User login |
+| GET | `/assignments` | List assignments |
+| POST | `/assignments` | Create assignment |
+| GET | `/courses` | List courses |
+| GET | `/subjects` | List subjects |
+
+## ⚙️ Environment Variables
+
 ```env
 NEXT_PUBLIC_BASE_API=http://localhost:8000/api
 ```
-*(Adjust the URL based on where your backend is running).*
 
-### Step 4: Run the Development Server
-Fire up the Next.js development server:
-```bash
-pnpm dev
-# or if you use npm:
-npm run dev
-```
+## 📋 Submission Checklist
 
-### Step 5: Open the App
-Open your browser and navigate to:
-[http://localhost:3000](http://localhost:3000)
+- ✅ Git repository with complete source code
+- ✅ Frontend & Backend included
+- ✅ Database files/migrations included
+- ✅ Demo credentials provided
+- ✅ README with setup instructions
+- ✅ All user roles implemented
+- ✅ Role-based access enforced
+- ✅ No secrets in repository
 
----
+## 🚢 Production Deployment
 
-## 🏗️ Build for Production
-To create an optimized production build, run:
 ```bash
 pnpm build
 pnpm start
 ```
+
+Deploy to: Vercel, Railway, or traditional hosting
+
+## 📞 Support
+
+**Email:** hrd@onnorokom.com  
+**GitHub:** [Repository Link]
+
+---
+
+**Project Type:** Full-stack web application  
+**Deadline:** August 14, 2026  
+**Version:** 0.1.0  
+**Status:** Development
