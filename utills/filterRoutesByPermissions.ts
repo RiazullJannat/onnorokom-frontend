@@ -33,21 +33,29 @@ export const filterRoutesByRole = ({
 };
 
 
-export const getRestrictedRoutesForRole = (role: TRole) => {
-  const restricted: string[] = [];
-  const walk = (routes: NavRoute[]) => {
-    for (const route of routes) {
-      if (route.path && route.roles && !route.roles.includes(role)) {
-        restricted.push(route.path);
-      }
+const flattenRoutes = (routes: NavRoute[]): NavRoute[] =>
+  routes.flatMap((route) => [
+    route,
+    ...(route.children ? flattenRoutes(route.children) : []),
+  ]);
 
-      if (route.children) {
-        walk(route.children);
-      }
-    }
-  };
+export const isPathAllowedForRole = (pathname: string, role: TRole) => {
+  const matchingRoutes = flattenRoutes(navigationRoute).filter(
+    (route) =>
+      !!route.path &&
+      (pathname === route.path || pathname.startsWith(`${route.path}/`)),
+  );
 
-  walk(navigationRoute);
+  if (!matchingRoutes.length) return true;
 
-  return restricted;
+  // Most specific (longest) matching path wins, so a restricted parent
+  // (e.g. "/dashboard") doesn't shadow an explicitly allowed child
+  // (e.g. "/dashboard/courses").
+  const mostSpecificRoute = matchingRoutes.sort(
+    (a, b) => (b.path?.length ?? 0) - (a.path?.length ?? 0),
+  )[0];
+
+  if (!mostSpecificRoute.roles) return true;
+
+  return mostSpecificRoute.roles.includes(role);
 };

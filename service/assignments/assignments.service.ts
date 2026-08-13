@@ -31,11 +31,11 @@ export const getAssignmentsByCourse = async (id: number) => {
 // ---------------------------------submishion --------------------------------
 
 export const submitAssignment = async (assignmentId: number | string, data: { Content: string }) => {
-    return await createData(`/assignments/${assignmentId}/submissions`, "/dashboard/assignments", data);
+    return await createData(`/assignments/${assignmentId}/submissions`, `/dashboard/assignments/${assignmentId}`, data);
 }
 
 export const updateAssignmentSubmission = async (assignmentId: number | string, submissionId: number | string, data: { Content: string }) => {
-    return await putData(`/assignments/${assignmentId}/submissions/${submissionId}`, "/dashboard/assignments", data);
+    return await putData(`/assignments/${assignmentId}/submissions/${submissionId}`, `/dashboard/assignments/${assignmentId}`, data);
 }
 
 export const getAssignmentSubmission = async (assignmentId: number | string) => {

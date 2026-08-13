@@ -12,11 +12,11 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import { useGetRole } from "@/hooks/useGetRole";
 import { useUser } from "@/provider/AuthProvider";
 import { logout } from "@/service/authService";
 import { motion } from "framer-motion";
 import { LayoutDashboard, LogOut, Menu } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -32,6 +32,10 @@ export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
   const { user, setIsLoading, setUser, isLoading } = useUser();
+  const { role } = useGetRole();
+
+  const dashboardPath = role === "Admin" ? "/dashboard" : "/dashboard/courses";
+  console.log(role)
 
 
   const handleLogOut = async () => {
@@ -151,7 +155,7 @@ export default function Navbar() {
                     ) : user ? (
                       <>
                         <Link
-                          href="/dashboard/courses"
+                          href={dashboardPath}
                           className="flex items-center gap-3 text-base font-semibold text-yellow-400 hover:translate-x-1 transition-transform"
                         >
                           <LayoutDashboard size={20} />
@@ -192,7 +196,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-4">
             {user ? (
               <>
-                <Link href="/dashboard">
+                <Link href={dashboardPath}>
                   <ButtonComponent
                     buttonName="Dashboard"
                     icon={LayoutDashboard}

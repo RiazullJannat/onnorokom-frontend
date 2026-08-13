@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCurrentUser, getNewToken, logout } from "./service/authService";
 import { isTokenExpired } from "./service/authService/validToken";
-import { getRestrictedRoutesForRole } from "./utills/filterRoutesByPermissions";
+import { isPathAllowedForRole } from "./utills/filterRoutesByPermissions";
 
 const authRoutes = ["/login", "/forgot-password", "/reset-password"];
 
@@ -73,16 +73,8 @@ export const proxy = async (request: NextRequest) => {
     return NextResponse.redirect(new URL(`/login`, request.url));
   }
 
-  if (role) {
-    const restrictedRoutes = getRestrictedRoutesForRole(role);
-
-    const isBlocked = restrictedRoutes.some((route) =>
-      pathname.startsWith(route),
-    );
-
-    if (isBlocked) {
-      return NextResponse.redirect(new URL("/", request.url));
-    }
+  if (role && !isPathAllowedForRole(pathname, role)) {
+    return NextResponse.redirect(new URL("/", request.url));
   }
 
   return response;

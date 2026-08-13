@@ -4,7 +4,6 @@ import {
   House,
   LayoutDashboard,
   LucideIcon,
-  PenSquare,
   Users,
 } from "lucide-react";
 
@@ -29,7 +28,7 @@ export const navigationRoute: NavRoute[] = [
     title: "Dashboard",
     icon: LayoutDashboard,
     path: "/dashboard",
-    roles: ["Admin"]
+    roles: ["Admin"],
   },
   {
     title: "Courses",
@@ -48,11 +47,5 @@ export const navigationRoute: NavRoute[] = [
     icon: Users,
     path: "/dashboard/assignments",
     roles: ["Admin", "Teacher", "Student"],
-  },
-  {
-    title: "Annotation",
-    icon: PenSquare,
-    path: "/dashboard/annotate",
-    roles: ["Teacher"],
   },
 ];
