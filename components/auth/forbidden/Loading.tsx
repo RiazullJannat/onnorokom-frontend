@@ -1,4 +1,4 @@
-import { AuthFormSkeleton } from "@/components/skeletons";
+import AuthFormSkeleton from "@/components/skeletons/AuthFormSkeleton";
 
 export default function Loading() {
     return (
